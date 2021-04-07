@@ -18,17 +18,19 @@ public class Test4 {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://login.mailchimp.com/signup/");
-		
+
 		WebElement searchBox1 = driver.findElement(By.name("username"));
 		searchBox1.sendKeys("2w3e4387AA");
 
 		WebElement searchBox11 = driver.findElement(By.name("password"));
 		searchBox11.sendKeys("Qwerty123!");
 		searchBox11.submit();
-		
-		WebElement invalid = driver.findElement(
-				By.className("invalid-error"));
+
+		WebElement invalid = driver.findElement(By.className("invalid-error"));
 		boolean invalidDisplayed = invalid.isDisplayed();
 		assertEquals(true, invalidDisplayed);
+		
+		Thread.sleep(5000);
+		driver.quit();
 	}
 }
